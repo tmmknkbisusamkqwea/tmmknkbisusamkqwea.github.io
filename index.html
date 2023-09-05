@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Goku.</title>
+    <style>
+        /* Sayfa başlangıcı için siyah arka plan */
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            transition: background-color 5s ease-in-out; /* 5 saniyelik fade-out efekti ekledik */
+        }
+
+        /* Metin stili */
+        #intro-text {
+            color: transparent;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 60px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+            position: relative;
+            animation: glowing 2s linear infinite;
+        }
+
+        /* Metin ışıltı animasyonu */
+        @keyframes glowing {
+            0% {
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 0.9), 0 0 30px rgba(255, 255, 255, 0.9);
+            }
+            50% {
+                text-shadow: none;
+            }
+            100% {
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 0.9), 0 0 30px rgba(255, 255, 255, 0.9);
+            }
+        }
+
+        /* Başla düğmesi */
+        #start-button {
+            background-color: transparent;
+            color: rgba(255, 255, 255, 0.438);
+            padding: 15px 30px; /* Düğme boyutunu küçülttük */
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0; /* Başlangıçta görünmez olacak */
+            transition: opacity 6s ease-in-out; /* 6 saniyelik fade-in efekti ekledik */
+        }
+        /* Video efekti */
+        #video-background {
+            opacity: 0;
+            transition: opacity 2s ease-in-out; /* 5 saniyelik fade-in efekti ekledik */
+        }
+    </style>
+</head>
+<body>
+    <!-- Siyah ekran üzerindeki metin -->
+    <div id="intro-text">
+        HAYIR DOSTUM BURADA ÇOCUK PORNOSU YOK.
+        <br>
+        <button id="start-button">😎BİZE KATIL😎</button>
+    </div>
+    
+    <style>
+    body, html {
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+    }
+    #video-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+    }
+     </style>
+
+    <video id="video-background" autoplay loop playsinline>
+        <source src="sanane.mp4" type="video/mp4">
+        Tarayıcınız video etiketini desteklemiyor.
+    </video>
+
+    <script>
+        var introText = document.getElementById("intro-text");
+        var startButton = document.getElementById("start-button");
+        var video = document.getElementById("video-background");
+
+        // Sayfa yüklendiğinde Başla düğmesini görünür yap
+        window.onload = function() {
+            startButton.style.opacity = "1";
+        };
+
+        // Başla düğmesine tıklama olayı
+        startButton.addEventListener("click", function() {
+            // Siyah arka planı kaybet ve videoyu göster
+            document.body.style.backgroundColor = "transparent";
+            introText.style.display = "none";
+            startButton.style.display = "none";
+            
+            // Videoyu görünür hale getir ve fade-in efektini uygula
+            video.style.display = "block";
+            video.style.opacity = "1"; // Videoyu anında görünür yap
+            
+            // Videonun otomatik olarak başlaması için play komutunu ver
+            video.play();
+        });
+    </script>
+</body>
+</html>
